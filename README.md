@@ -72,6 +72,8 @@ git push -u origin master //把本地源码库push到github 别名为origin的�
 # 资料
 [springboot 文档](https://docs.spring.io/spring-boot/docs)
 
+[githubApp文档] (https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)
+
 [bootstrap](https://v3.bootcss.com/components/#navbar)
 
 [es社区](https://elasticsearch.cn/)
