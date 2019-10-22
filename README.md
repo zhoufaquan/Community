@@ -41,12 +41,17 @@ which means you don't need to maintain a bot or service account as a separate us
  # 注册 Github App
  
  进入 Github主页，点击用户头像，找到 Setting/Developer settings/Github Apps，然后点击“New Github App”，即可进入编辑界面：
- # 获取授权码
+ Github App 注册完毕，接下来就需要第三方网站使用这个 APP 的 Client ID 去找 Github 要授权码了
+ # 获取授权码（每次授权都会动态改变）
  
  第三方网站要获取授权码，只需要让页面跳转到 Github 授权页即可，其中需要在 URL 中携带两个参数，分别是 Client ID 和 Redirect URL。
  
  跳转后，Github 会询问用户是否允许这个 APP 获取某些权限：
  
- 用户确定后，会带着授权码重定向到给定的回调地址:
+ 用户确定后，会带着授权码（code）重定向到给定的回调地址:
  
- 这时候，第三方页面（这里是 localhost:8080）已经拿到了授权码，接下来就需要凭借这个授权码以及 APP 的 Client ID 和 Client secret 去兑换 Token 了。
+ 这时候，第三方页面（这里是 localhost:8087）已经拿到了授权码，接下来就需要凭借这个授权码以及 APP 的 Client ID 和 Client secret 去兑换 Token 了。
+ 
+ 
+ # 兑换accecc_token(访问令牌)
+ 
