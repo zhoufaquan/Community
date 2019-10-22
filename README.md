@@ -23,7 +23,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
       尽管可以通过添加--forcepush命令来覆盖遥控器，但只有在绝对确定这是您要执行的操作时，才应该这样做。强制推送可能会给获取了远程分支的其他用户带来问题，
       被认为是不正确的做法。如有疑问，请不要强行按下。
       
-    [2]解决方法 合并分支 git push -f origin master
+    [2]解决方法  1.合并分支 git push -f origin master 2.本地仓库先push在commit
 
 # 新建工程提交到gitHub等git服务器的步奏
 

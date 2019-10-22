@@ -13,6 +13,7 @@ import java.io.IOException;
  * Date: 2019/10/21 18:32
  */
 @Component
+//通过授权码获得访问令牌
 public class GithubProvider {
     public String getAccessTokenDTO(AccessTokenDTO accessTokenDTO){
         MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
@@ -35,6 +36,7 @@ public class GithubProvider {
         return null;
 
     }
+    //通过访问令牌获取user信息
     public GithubUser getUser(String accessToken){
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -43,6 +45,7 @@ public class GithubProvider {
         try {
             Response response = client.newCall(request).execute();
             String string = response.body().string();
+            //json对象转换为类对象
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;
         } catch (IOException e) {
