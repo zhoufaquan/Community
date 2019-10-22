@@ -2,6 +2,12 @@
 
 # 错误
 [1] error: failed to push some refs to 'git@github.com:zhoufaquan/Community.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
    原因：由于某次我在GitHub的仓库直接修改了README.md,而本地仓库中的项目并为及时更新，然后我在本地仓库改了些东西，push 失败
    描述：首先，这个错误可能会让人有些不知所措，不要担心。
       简而言之，git不能在不丢失提交的情况下在远程上进行更改，因此它拒绝推送。通常，这是由另一个用户推送到同一分支引起的。
@@ -10,6 +16,9 @@
       在其他情况下，此错误是由于使用诸如git commit --amend或命令在本地进行的破坏性更改的结果git rebase。
       尽管可以通过添加--forcepush命令来覆盖遥控器，但只有在绝对确定这是您要执行的操作时，才应该这样做。强制推送可能会给获取了远程分支的其他用户带来问题，
       被认为是不正确的做法。如有疑问，请不要强行按下。
+      
+    [2]解决方法 合并分支 git push -f origin master
+
 # 新建工程提交到gitHub等git服务器的步奏
 
 1.配置查找电脑的.ssh key
