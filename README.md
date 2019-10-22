@@ -22,25 +22,46 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 # 新建工程提交到gitHub等git服务器的步奏
 
 1.配置查找电脑的.ssh key
+
 2.将.ssh key填充至服务器（网站）
+
 3.在服务器（网站）上新建一个项目，最好直接包含有README 和 .gitignore
+
 4.新建项目完成后，可以看到项目的克隆或者下载地址，等会需要用到的是http的地址
+
+
 5.使用终端，cd到桌面
+
 6.使用命令行 git clone 项目地址 /* git clone https://github.com/h4836j/addressBook.git */ (后面的是项目地址)
+
 7.克隆项目成功后，再将命令行cd到当前项目路径下去
+
 8.将需要上传的工程文件拷贝到克隆出来的文件夹中
+
 9.初始化git仓库
+
 git init // 在当前项目目录中生成本地git管理,并建立一个隐藏.git目录
+
 10.添加文件到git中
+
 git add . // 添加当前目录中的所有文件到索引
+
 11.提交到本地代码仓库
+
 git commit -m "first commit" //提交到本地源码库，并附加提交注释
+
 12.提交到远程代码仓库
+
 git remote add origin https://github.com/h4836j/addressBook.git //添加到远程项目，别名为origin (后面的是项目地址)
+
 如果报错说远程仓库中已经存在，则先移除远程仓库 git remote rm origin 之后再执行这句
+
 13.推送本地代码到服务器
+
 git push -u origin master //把本地源码库push到github 别名为origin的远程项目中，确认提交
+
 如果报错说本地文件不是最新的，则先拉取远程仓库文件 git pull origin master 之后再执行push操作
+
 
 # 资料
 [springboot 文档](https://docs.spring.io/spring-boot/docs)
