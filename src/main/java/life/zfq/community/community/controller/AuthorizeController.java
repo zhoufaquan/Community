@@ -42,6 +42,7 @@ public class AuthorizeController {
         //  通过访问令牌获得用户信息
         GithubUser user = githubProvider.getUser(accessToken);
         if (user != null) {
+            //登陆成功写cookies session
             requset.getSession().setAttribute("user",user);
             return "redirect:/index";
         } else {
