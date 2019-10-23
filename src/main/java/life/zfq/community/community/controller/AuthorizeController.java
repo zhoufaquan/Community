@@ -1,8 +1,10 @@
 package life.zfq.community.community.controller;
 
-import life.zfq.community.community.controller.dto.AccessTokenDTO;
-import life.zfq.community.community.controller.dto.GithubUser;
-import life.zfq.community.community.controller.provider.GithubProvider;
+import life.zfq.community.community.dao.User;
+import life.zfq.community.community.dto.AccessTokenDTO;
+import life.zfq.community.community.dto.GithubUser;
+import life.zfq.community.community.mapper.UserMapper;
+import life.zfq.community.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 /**
  * Author: zhouFaQuan
@@ -26,6 +29,8 @@ public class AuthorizeController {
     private String clientSecret;
     @Value("${github.redirect.uri}")
     private String clientUri;
+    @Autowired
+    private UserMapper userMapper;
     //处理github回调请求和参数
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
@@ -40,10 +45,22 @@ public class AuthorizeController {
         //通过授权码及其他参数取得访问令牌
         String accessToken = githubProvider.getAccessTokenDTO(accessTokenDTO);
         //  通过访问令牌获得用户信息
-        GithubUser user = githubProvider.getUser(accessToken);
-        if (user != null) {
+        GithubUser githubUser = githubProvider.getUser(accessToken);
+        if (githubUser != null) {
+
+            System.out.println("github"+githubUser);
+            User user = new User();
+            user.setToken(UUID.randomUUID().toString());
+            user.setName(githubUser.getName());
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            long y = System.currentTimeMillis();
+            System.out.println("y:"+y);
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+            System.out.println(user);
+            userMapper.insert(user);
             //登陆成功写cookies session
-            requset.getSession().setAttribute("user",user);
+            requset.getSession().setAttribute("user",githubUser);
             return "redirect:/index";
         } else {
             return "redirect:/index";

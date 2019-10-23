@@ -1,8 +1,8 @@
-package life.zfq.community.community.controller.provider;
+package life.zfq.community.community.provider;
 
 import com.alibaba.fastjson.JSON;
-import life.zfq.community.community.controller.dto.AccessTokenDTO;
-import life.zfq.community.community.controller.dto.GithubUser;
+import life.zfq.community.community.dto.AccessTokenDTO;
+import life.zfq.community.community.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package life.zfq.community.community.controller.dto;
+package life.zfq.community.community.dto;
 
 /**
  * Author: zhouFaQuan
