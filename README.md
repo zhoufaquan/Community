@@ -25,6 +25,15 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
       被认为是不正确的做法。如有疑问，请不要强行按下。
       
     [2]解决方法  1.合并分支 git push -f origin master 2.本地仓库先push在commit
+    
+    ```
+    git报错：'fatal:remote origin already exists'怎么处理？附上git常用操作以及说明。
+    解决：1、先删除
+    $ git remote rm origin
+    2、再次执行添加就可以了。　
+    git remote add origin git@github.com:zhoufaquan/Community.git
+
+    ```
 
 # 新建工程提交到gitHub等git服务器的步奏
 
