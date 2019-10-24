@@ -49,24 +49,21 @@ public class AuthorizeController {
         String accessToken = githubProvider.getAccessTokenDTO(accessTokenDTO);
         //  通过访问令牌获得用户信息
         GithubUser githubUser = githubProvider.getUser(accessToken);
+        //登陆持久化
         if (githubUser != null) {
 
-            System.out.println("github"+githubUser);
             User user = new User();
             //UUID.randomUUID().toString()是javaJDK提供的一个自动生成主键的方法。
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             user.setName(githubUser.getName());
             user.setAccountId(String.valueOf(githubUser.getId()));
-            long y = System.currentTimeMillis();
-            System.out.println("y:"+y);
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
-            System.out.println(user);
             //数据插入数据库过程就相当于写入 session
             userMapper.insert(user);
             //登陆成功写cookies cookies在response里
-          response.addCookie(new Cookie("token",token));
+            response.addCookie(new Cookie("token",token));
             requset.getSession().setAttribute("user",githubUser);
             return "redirect:/index";
         } else {
