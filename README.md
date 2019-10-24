@@ -1,6 +1,7 @@
 # 讨论社区
 
 # 错误
+```
 [1] error: failed to push some refs to 'git@github.com:zhoufaquan/Community.git'
 
 hint: Updates were rejected because the remote contains work that you do
@@ -12,7 +13,7 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-
+```
 
    原因：由于某次我在GitHub的仓库直接修改了README.md,而本地仓库中的项目并为及时更新，然后我在本地仓库改了些东西，push 失败
    描述：首先，这个错误可能会让人有些不知所措，不要担心。
