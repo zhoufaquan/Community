@@ -53,6 +53,7 @@ public class AuthorizeController {
 
             System.out.println("github"+githubUser);
             User user = new User();
+            //UUID.randomUUID().toString()是javaJDK提供的一个自动生成主键的方法。
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             user.setName(githubUser.getName());
