@@ -34,7 +34,19 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
     git remote add origin git@github.com:zhoufaquan/Community.git
 
     ```
+```
+1.在本地创建新的分支命令
 
+$ git checkout -b iss53
+
+相当于两条命令
+
+$ git branch iss53
+$ git checkout iss53
+
+
+
+```
 # 新建工程提交到gitHub等git服务器的步奏
 
 1.配置查找电脑的.ssh key
