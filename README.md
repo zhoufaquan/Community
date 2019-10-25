@@ -78,6 +78,12 @@ git push -u origin master //把本地源码库push到github 别名为origin的�
 
 如果报错说本地文件不是最新的，则先拉取远程仓库文件 git pull origin master 之后再执行push操作
 
+#新建分支
+1.在远程仓库创建第二个分支
+2.本地仓库先拉取 git pull
+3.切换分支 git chekout bug1
+4.切换回 主线“master”分支
+
 # 资料
 [springboot 文档](https://docs.spring.io/spring-boot/docs)
 
