@@ -34,6 +34,31 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
     git remote add origin git@github.com:zhoufaquan/Community.git
 
     ```
+    ```
+    Git push -u orign master 提示hint: not have locally. This is usually caused by another repository push
+    一、情景
+    1.在GitHub上创建一个仓库A，并且初始化了readme.md这个文档.
+    2.在本地用Git Bash初始化仓库A(一开始没有从GitHub上拉下来).
+    git init /* 初始化一个空的仓库*/
+    3.在本地仓库新建一个文件 test.txt,并且提交到本地仓库.
+    
+    git add test.txt /* 把test.txt设为仓库跟踪文件 */
+    git commit -m “测试第一次 test.txt” /* 提交文件并且追加备注 */
+    
+    4.把本地仓库提交到远程仓库master 分支
+    
+    git push git@github.com：用户名/仓库名 master
+    提交失败：not have locally. This is usually caused by another repository push
+    
+    二、原因
+    本地仓库跟远程仓库的版本不一样导致的,因为执行在步骤1的时候，远程的版本库会有个“commit readme.md”这个操作记录,本地仓库是不知道你有这个提交的，也就是说这个记录没在本地仓库是不存在的，所以俩个版本是不一致的.
+    三 、解决方法
+    A). 先更新本地版本在提交
+    
+    利用 git pull 更新本地版本库.
+    再 利用git push命令把本地仓库推送至远程仓库.
+ 
+    ```
 
 # 新建工程提交到gitHub等git服务器的步奏
 
