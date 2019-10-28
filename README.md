@@ -34,7 +34,6 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
     git remote add origin git@github.com:zhoufaquan/Community.git
 
     ```
-<<<<<<< HEAD
 ```
 1.在本地创建新的分支命令
 
@@ -117,11 +116,26 @@ git push -u origin master //把本地源码库push到github 别名为origin的�
 
 如果报错说本地文件不是最新的，则先拉取远程仓库文件 git pull origin master 之后再执行push操作
 
-#新建分支
+#远程新建分支
+
 1.在远程仓库创建第二个分支
+
 2.本地仓库先拉取 git pull
-3.切换分支 git chekout bug1
+
+3.在切换分支 git chekout bug1
+
 4.切换回 主线“master”分支
+
+#远程仓库分支删除
+
+git push origin -d xxxxx
+
+#本地仓库分支删除
+
+git branch
+
+git branch -d xxx
+
 
 # 资料
 [springboot 文档](https://docs.spring.io/spring-boot/docs)
