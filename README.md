@@ -115,7 +115,8 @@ git remote add origin https://github.com/h4836j/addressBook.git //添加到远�
 git push -u origin master //把本地源码库push到github 别名为origin的远程项目中，确认提交
 
 如果报错说本地文件不是最新的，则先拉取远程仓库文件 git pull origin master 之后再执行push操作
-
+14.push被拒绝
+git pull origin master --allow-unrelated-histories
 #远程新建分支
 
 1.在远程仓库创建第二个分支
