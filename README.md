@@ -117,6 +117,12 @@ git push -u origin master //把本地源码库push到github 别名为origin的�
 如果报错说本地文件不是最新的，则先拉取远程仓库文件 git pull origin master 之后再执行push操作
 14.push被拒绝
 git pull origin master --allow-unrelated-histories
+15.拉取远程仓库分支步骤
+1.拉取前在本地建分支
+2.拉取
+3.远程仓库地址配置
+4.commit 
+5.push
 #远程新建分支
 
 1.在远程仓库创建第二个分支
