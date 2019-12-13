@@ -61,7 +61,7 @@ public class Publish {
         User user = null;
         Cookie[] cookies = request.getCookies();
         System.out.println(cookies);
-        if (cookies != null) {
+        if (cookies != null && cookies.length != 0) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
                     String token = cookie.getValue();
@@ -85,12 +85,11 @@ public class Publish {
              question.setDescription(description);
              question.setTag(tag);
              question.setCreator(user.getId());
-             question.setGmt_create1(System.currentTimeMillis());
-             question.setGmt_modified1(question.getGmt_create1());
+             question.setGmtCreate(System.currentTimeMillis());
              System.out.println(question);
              questionMapper.create(question);
 
-             return "redirect:/index";
+             return "redirect:/";
          }
 
     }

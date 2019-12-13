@@ -1,9 +1,11 @@
 package life.zfq.community.community.mapper;
 
 import life.zfq.community.community.dao.Question;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
+import life.zfq.community.community.dto.QuestionDto;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @Author: zhouFaQuan
@@ -14,6 +16,15 @@ import org.springframework.stereotype.Component;
 public interface QuestionMapper {
 
 
-@Insert(value = "INSERT INTO question(title,description,gmt_create,gmt_modified,creator,tag) values(#{title},#{description},#{gmt_create1},#{gmt_modified1},#{creator},#{tag})")
- void  create(Question question);
+    @Insert(value = "INSERT INTO question(title,description,gmtCreate,gmtModified,creator,tag) values(#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
+    void create(Question question);
+
+//    @Select("select * \n" +
+//            "from question q\n" +
+//            "INNER JOIN `user` u on q.creator=u.id")
+
+    @Select("select * from question limit #{offset},#{size}")
+    List<Question> list(@Param(value = "offset") Integer offset,@Param(value = "size") Integer size);
+    @Select("select count(1) from question")
+    Integer count();
 }

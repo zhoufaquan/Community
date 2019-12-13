@@ -60,14 +60,15 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
+            user.setAvatarUrl(githubUser.getAvatar_url());
             //数据插入数据库过程就相当于写入 session
             userMapper.insert(user);
             //登陆成功写cookies cookies在response里,返回给浏览器页面
             response.addCookie(new Cookie("token",token));
             requset.getSession().setAttribute("user",githubUser);
-            return "redirect:/index";
+            return "redirect:/";
         } else {
-            return "redirect:/index";
+            return "redirect:/";
         }
 
     }
